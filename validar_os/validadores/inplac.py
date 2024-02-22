@@ -1,27 +1,15 @@
 """
 inplac.py
 """
-from pathlib import Path
+from validar_os.pdfs_teste import OS_INPLAC
+from validar_os.validadores.utils import generate_texts_from_image_pdf
 
-import pytesseract
-from pdf2image import convert_from_path
-
-from validar_os.pdfs_teste import OS_INPLAC, TXT_INPLAC
-from validar_os.bin import POPPLER
-
-
-pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 
 ID_ESPESSURA = 'Espessura do Clichê: '
 ID_CAMADA = 'Impressão'
 ID_FECHAMENTO = 'Fechamento de Cilindro: '
 ID_COD_BARRAS = 'Código de Barras: '
 
-
-def generate_texts(invoice: Path) -> str:
-    image = convert_from_path(invoice, poppler_path=POPPLER)
-    text: str = pytesseract.image_to_string(image[0], lang='por')
-    return text
 
 def scan_lines(text: str) -> dict:
     result = {}
@@ -59,8 +47,7 @@ def scan_lines(text: str) -> dict:
 
 
 if __name__ == '__main__':
-    # generate_texts()
     for arquivo in OS_INPLAC:
         print(f'Verificando {arquivo.name}...')
-        texto = generate_texts(arquivo)
+        texto = generate_texts_from_image_pdf(arquivo)
         print(scan_lines(texto))
