@@ -72,6 +72,20 @@ files = [
 ]
 
 [[package]]
+name = "pdf2image"
+version = "1.17.0"
+description = "A wrapper around the pdftoppm and pdftocairo command line tools to convert PDF to a PIL Image list."
+optional = false
+python-versions = "*"
+files = [
+    {file = "pdf2image-1.17.0-py3-none-any.whl", hash = "sha256:ecdd58d7afb810dffe21ef2b1bbc057ef434dabbac6c33778a38a3f7744a27e2"},
+    {file = "pdf2image-1.17.0.tar.gz", hash = "sha256:eaa959bc116b420dd7ec415fcae49b98100dda3dd18cd2fdfa86d09f112f6d57"},
+]
+
+[package.dependencies]
+pillow = "*"
+
+[[package]]
 name = "pillow"
 version = "10.2.0"
 description = "Python Imaging Library (Fork)"
@@ -172,6 +186,24 @@ plugins = ["importlib-metadata"]
 windows-terminal = ["colorama (>=0.4.6)"]
 
 [[package]]
+name = "pypdf"
+version = "4.0.2"
+description = "A pure-python PDF library capable of splitting, merging, cropping, and transforming PDF files"
+optional = false
+python-versions = ">=3.6"
+files = [
+    {file = "pypdf-4.0.2-py3-none-any.whl", hash = "sha256:a62daa2a24d5a608ba1b6284dde185317ce3644f89b9ebe5314d0c5d1c9f257d"},
+    {file = "pypdf-4.0.2.tar.gz", hash = "sha256:3316d9ddfcff5df67ae3cdfe8b945c432aa43e7f970bae7c2a4ab4fe129cd937"},
+]
+
+[package.extras]
+crypto = ["PyCryptodome", "cryptography"]
+dev = ["black", "flit", "pip-tools", "pre-commit (<2.18.0)", "pytest-cov", "pytest-socket", "pytest-timeout", "pytest-xdist", "wheel"]
+docs = ["myst_parser", "sphinx", "sphinx_rtd_theme"]
+full = ["Pillow (>=8.0.0)", "PyCryptodome", "cryptography"]
+image = ["Pillow (>=8.0.0)"]
+
+[[package]]
 name = "pytesseract"
 version = "0.3.10"
 description = "Python-tesseract is a python wrapper for Google's Tesseract-OCR"
@@ -200,4 +232,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "2578184b2e98b411161f625d28d5fbd7f6f988d291f61c1c99e6de317c2009c0"
+content-hash = "6f5132089e9016b4d4b6021d92c6f7d4c9ab3f085810b6ec7e71829f87110224"

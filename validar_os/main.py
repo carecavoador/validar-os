@@ -1,6 +1,6 @@
 from icecream import ic
 
-from ordem import OrdemDeServico
+from validar_os.ordem import OrdemDeServico
 
 
 INFO_OS = {
